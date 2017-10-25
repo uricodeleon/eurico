@@ -1,0 +1,83 @@
+﻿<Controls:MetroWindow x:Class="Inventory_1.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"                  
+                      Title="MainWindow"
+                      Height="711"
+                      Width="1080" ShowTitleBar="False" BorderBrush="#FF5CC4FF" BorderThickness="1" SnapsToDevicePixels="True">
+    <Grid>
+        <StackPanel Margin="2">
+            <TabControl Height="645" Margin="10,25,6,0" VerticalAlignment="Top">
+                
+                <TabItem Header="Customer/Transaction">
+                    <Grid Background="#FFEEEEEE">
+                        <StackPanel HorizontalAlignment="Left" Margin="2,2,0,440">
+                            <Label FontSize="15" Margin="2" Content="Account Code.:"/>
+                            <Label FontSize="15" Content="Customer Name:"/>
+                            <Label FontSize="15" Content="Address:"/>
+                            <Label FontSize="15" Content="Terms:"/>
+                            <Label FontSize="15" Content="Contact Number:"/>
+
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="128,0,0,440" >
+                            <TextBox Width="250" Margin="5" x:Name="drTxt" Controls:TextBoxHelper.Watermark="DR No."/>
+                            <TextBox Width="250" x:Name="customerTxt" Controls:TextBoxHelper.Watermark="Customer Name:"/>
+                            <TextBox Width="250" Margin="5" x:Name="addressTxt" Controls:TextBoxHelper.Watermark="Address"/>
+                            <TextBox Width="250" x:Name="termsTxt" Controls:TextBoxHelper.Watermark="Terms"/>
+                            <TextBox Width="250" Margin="5" x:Name="contactTxt" Controls:TextBoxHelper.Watermark="Contact Number"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="10,171,0,63" Width="1022">
+                            <DataGrid Height="361" x:Name="dataGridTranscaction"  ColumnWidth="*" BorderThickness="1" AutoGenerateColumns="False" HeadersVisibility="All" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding CustomerID}" Header="CA Number" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding ContactName}" Header="Account Code." Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Address}" Header="Customer Name." Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding City}" Header="Address" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Phone}" Header="Terms" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Phone}" Header="Contact Number" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Phone}" Header="Date Encoded" Width="150" IsReadOnly="True" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        <Button Content="Delete" HorizontalAlignment="Left" Margin="921,538,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                        <Button Content="Edit" HorizontalAlignment="Left" Margin="816,538,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="711,538,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="797,140,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="Search:"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Inventory">
+                    <Grid Background="#FFEEEEEE">
+                        <StackPanel Margin="5,5,934,468">
+                            <Label FontSize="15">Item Name:</Label>
+                            <Label FontSize="15">Item Number:</Label>
+                            <Label FontSize="15">Item Quantity</Label>
+                            <Label FontSize="15">Item Price:</Label>
+                        </StackPanel>
+                        <StackPanel Margin="111,0,681,468">
+                            <TextBox Margin="5" Controls:TextBoxHelper.Watermark="Item Name:"></TextBox>
+                            <TextBox Margin="3" Controls:TextBoxHelper.Watermark="Item Number"></TextBox>
+                            <TextBox Margin="3" Controls:TextBoxHelper.Watermark="Item Quantity"></TextBox>
+                            <TextBox Margin="3" Controls:TextBoxHelper.Watermark="Item Price"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="10,164,10,57">
+                            <DataGrid Height="375" x:Name="dataGridInventory"  ColumnWidth="*" BorderThickness="1" AutoGenerateColumns="False" HeadersVisibility="All" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding CustomerID}" Header="ID" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding ContactName}" Header="Item Name." Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Address}" Header="Item Number" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding City}" Header="Item Quantity" Width="*" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Phone}" Header="Item Price" Width="*" IsReadOnly="True" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="836,133,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Search..." VerticalAlignment="Top" Width="194"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="719,544,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                        <Button Content="Edit" HorizontalAlignment="Left" Margin="824,544,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                        <Button Content="Delete" HorizontalAlignment="Left" Margin="930,544,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

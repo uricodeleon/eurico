@@ -1,0 +1,99 @@
+﻿<Controls:MetroWindow x:Class="Inventory_1.Transaction"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Transaction"
+                      Height="820"
+                      Width="1427" ShowTitleBar="False" BorderBrush="#FF5CC4FF" BorderThickness="1">
+    <Grid>
+        <Grid>
+            <StackPanel Margin="2">
+                <TabControl Height="753" Margin="10,25,6,0" VerticalAlignment="Top">
+                    <TabItem Header="Transcation">
+                        <Grid Background="#FFEEEEEE" Margin="0,0,2,0">
+                            <StackPanel HorizontalAlignment="Left" Margin="2,2,0,546">
+                                <Label FontSize="15" Margin="2" Content="Account Code.:"/>
+                                <Label FontSize="15" Content="Customer Name:"/>
+                                <Label FontSize="15" Content="Address:"/>
+                                <Label FontSize="15" Content="Terms:"/>
+                                <Label FontSize="15" Content="Contact Number:"/>
+
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="128,0,0,546" >
+                                <TextBlock FontSize="15" Margin="8" Name="accountCodeTxt">qweqwe</TextBlock>
+                                <TextBlock FontSize="15" Margin="5" Name="customerTxt">qweqwe</TextBlock>
+                                <TextBlock FontSize="15" Margin="5" Name="addressTxt">qweqwe</TextBlock>
+                                <TextBlock FontSize="15" Margin="5" Name="termsTxt">qweqwe</TextBlock>
+                                <TextBlock FontSize="15" Margin="5" Name="contactTxt">qweqwe</TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Margin="26,160,1240,393" >
+                                <Label FontSize="15">Pack Qty.</Label>
+                                <Label FontSize="15">Pack Unit..</Label>
+                                <Label FontSize="15">Sales Qty.</Label>
+                                <Label FontSize="15">Total Sales.</Label>
+                                <Label FontSize="15">Sales Unit.</Label>
+                            </StackPanel>
+                            <StackPanel  Margin="150,160,925,393">
+                                <TextBox Width="250" Margin="2" x:Name="packqtyTxt" Controls:TextBoxHelper.Watermark="Pack Qty."/>
+                                <TextBox Width="250" Margin="2" x:Name="packunitTxt" Controls:TextBoxHelper.Watermark="Pack Unit."/>
+                                <TextBox Width="250" Margin="2" x:Name="salesqtyTxt" Controls:TextBoxHelper.Watermark="Sales Qty."/>
+                                <TextBox Width="250" Margin="2" x:Name="totalSaleTxt" Controls:TextBoxHelper.Watermark="Total Sales."/>
+                                <TextBox Width="250" Margin="2" x:Name="salesunitTxt" Controls:TextBoxHelper.Watermark="Sales Unit."/>
+                            </StackPanel>
+
+                            <StackPanel Margin="608,1,519,457" >
+                                <Label FontSize="15" Height="30">Item Name</Label>
+                                <TextBox Name="searchTxtBox" Controls:TextBoxHelper.Watermark="Search......" TextChanged="searchTxtBox_TextChanged"/>
+                                <ComboBox Controls:TextBoxHelper.Watermark="Item Category"></ComboBox>
+                                <ListBox Height="189" Name="itemList" Margin="0,2" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                    <ListBoxItem>Rod</ListBoxItem>
+                                    <ListBoxItem>Nails</ListBoxItem>
+                                    <ListBoxItem>Plywood</ListBoxItem>
+                                    <ListBoxItem>Door</ListBoxItem>
+                                    <ListBoxItem>Vulca</ListBoxItem>
+                                    <ListBoxItem>Kogmo</ListBoxItem>
+                                    <ListBoxItem>qweqweq</ListBoxItem>
+                                    <ListBoxItem>qweqweq</ListBoxItem>
+                                    <ListBoxItem>qweq</ListBoxItem>
+                                </ListBox>
+                            </StackPanel>
+                            <StackPanel  Margin="608,247,676,393">
+                                <Label FontSize="15">Item Number:</Label>
+                                <Label FontSize="15">Item Price</Label>
+                            </StackPanel>
+                            <StackPanel Margin="709,247,519,393">
+                                <TextBox Margin="3" IsReadOnly="true" Name="itemTxtbox" Controls:TextBoxHelper.Watermark="Item #"/>
+                                <TextBox Margin="3" IsReadOnly="true" Name="priceTxtbox" Controls:TextBoxHelper.Watermark="Price"/>
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Left" Margin="10,316,0,63" Width="1367">
+                                <DataGrid Height="324" x:Name="dataGridTranscaction"  ColumnWidth="*" BorderThickness="1" AutoGenerateColumns="False" HeadersVisibility="All" HorizontalAlignment="Left" Width="1367" >
+                                    <DataGrid.Columns>
+
+                                        <DataGridTextColumn Binding="{Binding packqty}" Header="Pack Qty." Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding packunit}" Header="Pack Unit." Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding salesqty}" Header="Sales Qty." Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding totalsales}" Header="Total Sales" Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding salesunit}" Header="Sales Unit" Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding itemnumber}" Header="Item #" Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding itemname}" Header="Item Name" Width="250"  IsReadOnly="True"  />
+                                        <DataGridTextColumn Binding="{Binding itemprice}" Header="Item Price" Width="*" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding amount}" Header="Amount" Width="*" IsReadOnly="True" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                            <Button Content="Delete" Name="deleteBtn" HorizontalAlignment="Left" Margin="1277,646,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                            <Button Content="Edit" Name="saveBtn" HorizontalAlignment="Left" Margin="1172,646,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                            <Button Content="Add" Name="addBtn" HorizontalAlignment="Left" Margin="1067,646,0,0" VerticalAlignment="Top" Width="100" Height="38"/>
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="1142,285,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="235" Controls:TextBoxHelper.Watermark="Search:"/>
+                            <Label Content="Total Amount:" FontSize="20"  HorizontalAlignment="Left" Margin="10,646,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.789,0.308" Height="48" FontWeight="Bold"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="968,646,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click" Height="38"/>
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
